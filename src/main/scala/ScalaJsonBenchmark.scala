@@ -59,6 +59,8 @@ class Json4sParser extends MyParser {
 }
 
 class RaptureParser extends MyParser {
+  implicit val dateExtractor = rapture.json.Json.extractor[Bird]
+
   def apply(s: String) = {
     rapture.json.Json.parse(s).as[Bird]
   }
